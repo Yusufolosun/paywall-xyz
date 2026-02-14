@@ -1,0 +1,23 @@
+{
+  "name": "@paywall/widget",
+  "version": "1.0.0",
+  "main": "dist/paywall.js",
+  "type": "module",
+  "dependencies": {
+    "@stacks/connect": "^7.8.2",
+    "@stacks/transactions": "^6.15.0",
+    "@stacks/network": "^6.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "rollup": "^4.9.5",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "tslib": "^2.6.2"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  }
+}
