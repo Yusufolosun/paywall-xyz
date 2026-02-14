@@ -1,0 +1,18 @@
+name: Deploy
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy-widget:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build widget
+        run: cd widget && npm ci && npm run build
+      - name: Upload to CDN
+        run: echo "Upload widget/dist/paywall.js to CDN"

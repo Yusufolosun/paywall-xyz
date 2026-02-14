@@ -1,0 +1,54 @@
+name: CI
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Clarinet
+        uses: hirosystems/clarinet-install@v1
+      - name: Run contract tests
+        run: cd contracts && clarinet test
+
+  test-widget:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: cd widget && npm ci
+      - name: Build widget
+        run: cd widget && npm run build
+      - name: Check build output
+        run: test -f widget/dist/paywall.js
+
+  test-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: cd backend && npm ci
+      - name: Build backend
+        run: cd backend && npm run build
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check formatting
+        run: |
+          cd widget && npm ci && npx prettier --check "src/**/*.ts"
+          cd ../backend && npm ci && npx prettier --check "src/**/*.ts"
