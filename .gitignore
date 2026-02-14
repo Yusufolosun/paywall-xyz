@@ -1,0 +1,29 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Stacks configuration
+Mainnet.toml
+Testnet.toml
+settings/Mainnet.toml
+settings/Testnet.toml
+
+# Private keys & mnemonics
+*.key
+*.pem
+*mnemonic*
+*private*
+wallet.json
+
+# Node
+node_modules/
+dist/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
