@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - PayWall.xyz</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>PayWall.xyz Documentation</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="docs.html">Docs</a>
+                <a href="../demo/index.html">Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="docs">
+        <div class="container">
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                    <li><a href="#api-reference">API Reference</a></li>
+                    <li><a href="#contract">Smart Contract</a></li>
+                    <li><a href="#styling">Styling</a></li>
+                </ul>
+            </aside>
+
+            <article class="content">
+                <section id="installation">
+                    <h2>Installation</h2>
+
+                    <h3>CDN (Recommended)</h3>
+                    <pre><code>&lt;script src="https://cdn.paywall.xyz/widget.js"&gt;&lt;/script&gt;</code></pre>
+
+                    <h3>NPM</h3>
+                    <pre><code>npm install @paywall/widget</code></pre>
+                </section>
+
+                <section id="quick-start">
+                    <h2>Quick Start</h2>
+                    <p>Add the widget script and mark content with data attributes:</p>
+                    <pre><code>&lt;script src="https://cdn.paywall.xyz/widget.js"&gt;&lt;/script&gt;
+
+&lt;div data-paywall-id="1" data-paywall-price="0.5"&gt;
+  &lt;h2&gt;Premium Article&lt;/h2&gt;
+  &lt;p&gt;This content is locked until payment.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  new PaywallWidget({
+    contractAddress: 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.paywall-v1',
+    network: 'testnet'
+  }).init();
+&lt;/script&gt;</code></pre>
+                </section>
+
+                <section id="configuration">
+                    <h2>Configuration</h2>
+
+                    <h3>Data Attributes</h3>
+                    <ul>
+                        <li><code>data-paywall-id</code> - Unique content identifier (integer)</li>
+                        <li><code>data-paywall-price</code> - Price in STX (decimal)</li>
+                    </ul>
+
+                    <h3>Widget Options</h3>
+                    <pre><code>interface PaywallConfig {
+  contractAddress: string;  // Deployed contract address
+  network: 'testnet' | 'mainnet';
+}</code></pre>
+                </section>
+
+                <section id="api-reference">
+                    <h2>API Reference</h2>
+
+                    <h3>PaywallWidget Class</h3>
+                    <pre><code>const widget = new PaywallWidget(config);
+await widget.init();</code></pre>
+
+                    <h3>Methods</h3>
+                    <ul>
+                        <li><code>init(): Promise&lt;void&gt;</code> - Initialize widget and scan DOM</li>
+                    </ul>
+                </section>
+
+                <section id="contract">
+                    <h2>Smart Contract</h2>
+
+                    <h3>Testnet</h3>
+                    <p><code>ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.paywall-v1</code></p>
+
+                    <h3>Functions</h3>
+                    <ul>
+                        <li><code>register-content</code> - Register content with pricing</li>
+                        <li><code>unlock-content</code> - Pay to unlock content</li>
+                        <li><code>has-access</code> - Check if user has access</li>
+                    </ul>
+
+                    <h3>Revenue Split</h3>
+                    <p>90% to content creator, 10% platform fee</p>
+                </section>
+
+                <section id="styling">
+                    <h2>Styling</h2>
+
+                    <h3>CSS Classes</h3>
+                    <ul>
+                        <li><code>.paywall-locked</code> - Applied when content is locked</li>
+                        <li><code>.paywall-unlocked</code> - Applied after successful unlock</li>
+                        <li><code>.paywall-unlock-btn</code> - Unlock button element</li>
+                    </ul>
+
+                    <h3>Custom Styling</h3>
+                    <pre><code>.paywall-unlock-btn {
+  background: #5546ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+}</code></pre>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>PayWall.xyz - Open Source MIT License</p>
+        </div>
+    </footer>
+</body>
+
+</html>
