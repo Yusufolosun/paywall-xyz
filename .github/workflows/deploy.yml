@@ -1,4 +1,5 @@
 name: Deploy
+
 on:
   push:
     tags:
@@ -12,7 +13,35 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      
       - name: Build widget
-        run: cd widget && npm ci && npm run build
-      - name: Upload to CDN
-        run: echo "Upload widget/dist/paywall.js to CDN"
+        run: |
+          cd widget
+          npm ci
+          npm run build
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: widget
+          path: widget/dist/paywall.js
+
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Build backend
+        run: |
+          cd backend
+          npm ci
+          npm run build
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend
+          path: backend/dist/
