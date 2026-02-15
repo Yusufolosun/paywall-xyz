@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Blog - PayWall.xyz</title>
+    <script src="../widget/dist/paywall.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+
+        article {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta {
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+
+        .preview {
+            margin-bottom: 2rem;
+        }
+
+        .premium {
+            margin-top: 2rem;
+        }
+
+        .paywall-locked {
+            min-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <h1>The Future of Content Monetization</h1>
+        <p class="meta">By Demo Author • February 15, 2026</p>
+
+        <div class="preview">
+            <p>Content creators have long struggled with finding sustainable ways to monetize their work. Traditional
+                advertising models favor large platforms, while subscription paywalls create barriers for casual
+                readers.</p>
+
+            <p>What if there was a better way? A system that allowed readers to pay for individual pieces of content
+                they value, without the friction of creating accounts or managing subscriptions?</p>
+        </div>
+
+        <div class="premium" data-paywall-id="1" data-paywall-price="0.5">
+            <h2>Micropayments: The Solution</h2>
+
+            <p>Blockchain technology enables true micropayments for the first time in internet history. With Stacks,
+                readers can unlock content for as little as $0.50, paying directly from their crypto wallet.</p>
+
+            <h3>Benefits for Creators</h3>
+            <ul>
+                <li>Keep 90% of all revenue</li>
+                <li>No monthly platform fees</li>
+                <li>Instant settlement of payments</li>
+                <li>Full ownership of content and audience</li>
+            </ul>
+
+            <h3>Benefits for Readers</h3>
+            <ul>
+                <li>Pay only for what you read</li>
+                <li>No account creation required</li>
+                <li>Support creators directly</li>
+                <li>Cryptographic proof of purchase</li>
+            </ul>
+
+            <h2>How It Works</h2>
+            <p>The process is simple: when you click the unlock button, your Stacks wallet opens. Approve the
+                transaction, and the content unlocks immediately. Your payment is recorded on the blockchain, giving you
+                permanent access.</p>
+
+            <p>This demo uses PayWall.xyz, a drop-in widget that any website can integrate in just 3 lines of code. The
+                smart contract ensures creators receive their revenue automatically, with no intermediaries.</p>
+
+            <h2>The Future</h2>
+            <p>As blockchain technology matures, we expect micropayments to become the dominant model for online
+                content. Readers gain freedom from subscriptions, while creators earn sustainable income without
+                sacrificing their independence.</p>
+        </div>
+    </article>
+
+    <script>
+    new PaywallWidge                contractAddress: 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.paywall-v                network: 'testn            }).init;
+    </script>
+</body>
+
+</html>
