@@ -1,0 +1,19 @@
+# Testnet Deployment Information
+
+Contract Address: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.paywall-v1
+Deployment TX: [TX_ID will be added after deployment]
+Block Height: [Block height will be added after deployment]
+Network: Stacks Testnet
+
+Deployed Functions:
+- register-content(content-id: uint, price: uint)
+- unlock-content(content-id: uint)
+- has-access(user: principal, content-id: uint)
+- get-content-price(content-id: uint)
+- get-content-creator(content-id: uint)
+
+Revenue Split:
+- Creator: 90%
+- Platform: 10%
+
+Explorer URL: https://explorer.hiro.so/txid/[TX_ID]?chain=testnet
